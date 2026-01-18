@@ -126,17 +126,6 @@ This repository contains the complete source code for both versions of the emula
 * Page-based ROM selector
 
 
-**How to Run**
-
-
-
-1. Open folder "CHIP-8 Standalone (win-x64) (v. 1.0.0)", which
-   can be typically found in your downloads in File Explorer
-2. Double-click "CHIP8Emulator.exe"
-3. Use the launcher to select a game
-
-
-
 **How to Add ROMs**
 
 1. Download CHIP-8 ROMs (.ch8 files, .txt untested)
@@ -358,5 +347,6 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
