@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chip8Web</title>
     <base href="/Chip8-Emulator/" />
-    <link href="_framework/dotnet.iutfe6umhb.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-2kqsfPHfspEm9VyKOQ2U7Ln0j8JLfmRWcNvQPj+Iahk=" />
+    <link href="_framework/dotnet.7dk8gvks5i.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-G0Wj34sLO4sgcZPkMRz8F54fMROU4QysqTlxOV6zDpc=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -14,7 +14,7 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.iutfe6umhb.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.7dk8gvks5i.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.cs8mcre4gh.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.0j6ezsi0n0.js"
   },
@@ -22,8 +22,8 @@
   "integrity": {
     "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
     "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
-    "./_framework/dotnet.iutfe6umhb.js": "sha256-2kqsfPHfspEm9VyKOQ2U7Ln0j8JLfmRWcNvQPj+Iahk=",
-    "./_framework/dotnet.js": "sha256-2kqsfPHfspEm9VyKOQ2U7Ln0j8JLfmRWcNvQPj+Iahk=",
+    "./_framework/dotnet.7dk8gvks5i.js": "sha256-G0Wj34sLO4sgcZPkMRz8F54fMROU4QysqTlxOV6zDpc=",
+    "./_framework/dotnet.js": "sha256-G0Wj34sLO4sgcZPkMRz8F54fMROU4QysqTlxOV6zDpc=",
     "./_framework/dotnet.native.cs8mcre4gh.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.native.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.runtime.0j6ezsi0n0.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
@@ -48,7 +48,15 @@
     </div>
 
     <script src="emulator.js"></script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                // Forces the browser to ignore 'integrity' check
+                return defaultUri;
+            }
+        });
+    </script>
 
     <script>
         // Audio Context to manage sound
@@ -113,5 +121,6 @@
         };
     </script>
 </body>
+
 
 </html>
