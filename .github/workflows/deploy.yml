@@ -19,4 +19,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: release/wwwroot
-          branch: gh-pages # This creates a special hidden branch for your website
+          branch: gh-pages
