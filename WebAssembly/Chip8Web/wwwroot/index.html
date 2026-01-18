@@ -30,7 +30,15 @@
     </div>
 
     <script src="emulator.js"></script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                // Forces the browser to ignore 'integrity' check
+                return defaultUri;
+            }
+        });
+    </script>
 
     <script>
         // Audio Context to manage sound
@@ -95,5 +103,6 @@
         };
     </script>
 </body>
+
 
 </html>
