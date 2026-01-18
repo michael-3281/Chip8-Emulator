@@ -126,26 +126,6 @@ This repository contains the complete source code for both versions of the emula
 * Page-based ROM selector
 
 
-
-**Folder Structure**
-
-
-
-CHIP-8 Standalone (win-x64) (v. 1.0.0)/
-├─ CHIP8Emulator.exe
-├─ roms/
-│ ├─ Pong.ch8
-│ ├─ Tetris.ch8
-│ ├─ SpaceInvaders.ch8
-│ └─ ...
-└─ README.md
-
-
-
-NOTICE: The roms folder must be located next to the .exe
-
-
-
 **How to Run**
 
 
@@ -378,4 +358,5 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
