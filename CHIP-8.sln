@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHIP8Emulator", "CHIP8Emulator\CHIP8Emulator.csproj", "{A46E2082-72FD-E969-588A-35799FFC5D48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebAssembly", "WebAssembly", "{032573FE-E973-EE49-F164-6E17D60C24C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chip8Web", "WebAssembly\Chip8Web\Chip8Web.csproj", "{932315C9-F916-4743-B9BA-AD59BCF94B04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chip8Emulator", "Chip8Emulator", "{D3F9DB00-9EFE-8B4E-8A44-0A5CB6151A66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|x64.Build.0 = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Debug|x86.Build.0 = Debug|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|x64.ActiveCfg = Release|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|x64.Build.0 = Release|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|x86.ActiveCfg = Release|Any CPU
+		{A46E2082-72FD-E969-588A-35799FFC5D48}.Release|x86.Build.0 = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|x64.Build.0 = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Debug|x86.Build.0 = Debug|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|x64.ActiveCfg = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|x64.Build.0 = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|x86.ActiveCfg = Release|Any CPU
+		{932315C9-F916-4743-B9BA-AD59BCF94B04}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{932315C9-F916-4743-B9BA-AD59BCF94B04} = {032573FE-E973-EE49-F164-6E17D60C24C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3390A0C8-2DEF-44B3-BF06-B0F55B1CA02E}
+	EndGlobalSection
+EndGlobal
