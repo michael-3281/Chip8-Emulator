@@ -1,0 +1,200 @@
+@page "/"
+@inject IJSRuntime JS
+@inject HttpClient Http
+
+<div @ref="inputDiv" 
+     tabindex="0" 
+     style="width: 100%; height: 100vh; background-color: #1a1a1a; display: flex; align-items: center; justify-content: center; outline: none;"
+     @onkeydown="KeyDown" 
+     @onkeyup="KeyUp">
+
+    <div style="
+        background-color: black;
+        display: inline-block;
+        line-height: 0;
+        box-shadow: 0 0 40px rgba(255,255,255,0.3);
+    ">
+
+        <canvas id="screen"
+                style="
+                    display: block;
+                    image-rendering: pixelated;
+                    width: 80vw;
+                    max-width: 960px;
+                    height: auto;
+                    background: black;
+                ">
+        </canvas>
+    </div>
+
+</div>
+
+@code {
+    private ElementReference inputDiv;
+    private Chip8 chip8 = new Chip8();
+    private bool isLoopRunning = false;
+
+    // Standard Chip-8 Keyboard Mapping (Cosmac VIP Layout)
+    private readonly Dictionary<string, int> keyMap = new Dictionary<string, int>
+    {
+        { "1", 0x1 }, { "2", 0x2 }, { "3", 0x3 }, { "4", 0xC },
+        { "q", 0x4 }, { "w", 0x5 }, { "e", 0x6 }, { "r", 0xD },
+        { "a", 0x7 }, { "s", 0x8 }, { "d", 0x9 }, { "f", 0xE },
+        { "z", 0xA }, { "x", 0x0 }, { "c", 0xB }, { "v", 0xF }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        // 1. Fetch the list of available ROMs
+        try 
+        {
+            var romNames = await Http.GetFromJsonAsync<string[]>("roms/manifest.json");
+
+            if (romNames != null)
+            {
+                var loadedRoms = new List<(string, byte[])>();
+
+                // 2. Download each ROM file
+                foreach (var name in romNames)
+                {
+                    var bytes = await Http.GetByteArrayAsync($"roms/{name}");
+                    loadedRoms.Add((name, bytes));
+                }
+
+                // 3. Load them into the Core and enter Launcher mode
+                chip8.LoadRomListFromManifest(loadedRoms);
+                chip8.EnterLauncher();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading ROMs: {ex.Message}");
+        }
+
+        // 4. Wire sound callback so beeps call into JS
+        chip8.OnSoundStateChanged += (isPlaying) => 
+        {
+            // We don't await this because we don't want to block the CPU cycle
+            _ = JS.InvokeVoidAsync("playChip8Sound", isPlaying);
+        };
+
+        // 5. Start the render loop (don't await so OnInitializedAsync can complete)
+        if (!isLoopRunning)
+        {
+            isLoopRunning = true;
+            _ = GameLoop();
+        }
+        
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await inputDiv.FocusAsync();
+        }
+    }
+
+    private async Task KeyDown(KeyboardEventArgs e)
+    {
+        await JS.InvokeVoidAsync("ensureAudio");
+
+        // normalize key to lowercase so 'W' and 'w' both work
+        var key = e.Key.ToLower();
+
+        // MODE: LAUNCHER - Navigate the Menu
+        if (chip8.Mode == EmulatorMode.Launcher)
+        {
+            // Allow both Arrow Keys AND W/S
+            if (key == "arrowup" || key == "w") 
+            {
+                chip8.MenuUp();
+            }
+            else if (key == "arrowdown" || key == "s") 
+            {
+                chip8.MenuDown();
+            }
+            else if (key == "enter") 
+            {
+                chip8.MenuSelect();
+            }
+        }
+        // MODE: RUNNING - Play the Game
+        else if (chip8.Mode == EmulatorMode.Running)
+        {
+            // 1. Check for Escape to go back to Menu
+            if (key == "escape")
+            {
+                chip8.EnterLauncher(); // This resets the core to the menu
+                return;
+            }
+
+            // 2. Handle Game Keys
+            if (keyMap.ContainsKey(key))
+            {
+                chip8.SetKey(keyMap[key], true);
+            }
+        }
+    }
+
+    private void KeyUp(KeyboardEventArgs e)
+    {
+        // Only needed while running
+        if (chip8.Mode == EmulatorMode.Running)
+        {
+            var key = e.Key.ToLower();
+            if (keyMap.ContainsKey(key))
+            {
+                chip8.SetKey(keyMap[key], false);
+            }
+        }
+    }
+
+    private async Task GameLoop()
+    {
+        while (isLoopRunning)
+        {
+            // Only cycle CPU if the emulator is actually running a ROM
+            if (chip8.Mode == EmulatorMode.Running)
+            {
+                // Run ~10 CPU cycles per frame to speed up the game
+                for (int i = 0; i < 10; i++)
+                {
+                    chip8.Cycle();
+                }
+
+                // Tick timers once per frame (~60Hz) so sound timer behavior is correct
+                chip8.TickTimers();
+            }
+
+            // Draw to screen (Launcher handles its own drawing in GetDisplay)
+            await DrawScreen();
+            
+            // Wait for next frame (~60fps)
+            await Task.Delay(16);
+        }
+    }
+
+    private async Task DrawScreen()
+    {
+        // 1. Get the 2D array from the core
+        var display2D = chip8.GetDisplay();
+        
+        // 2. Create a flat 1D array (64 * 32 = 2048 pixels)
+        // We use a flat array because it is much faster for JavaScript to process
+        var flattened = new bool[64 * 32];
+
+        // 3. Flatten the data (Row-major order: Row 0, then Row 1, etc.)
+        for (int y = 0; y < 32; y++)
+        {
+            for (int x = 0; x < 64; x++)
+            {
+                // Calculate the single index for this X,Y coordinate
+                flattened[y * 64 + x] = display2D[x, y];
+            }
+        }
+
+        // 4. Send the simple 1D list to JavaScript
+        await JS.InvokeVoidAsync("drawDisplay", flattened, 64, 32, 10);
+    }
+}
