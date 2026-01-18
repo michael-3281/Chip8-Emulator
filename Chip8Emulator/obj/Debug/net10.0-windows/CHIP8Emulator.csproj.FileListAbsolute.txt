@@ -1,0 +1,28 @@
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\bin\Debug\net10.0-windows\CHIP8Emulator.exe
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\bin\Debug\net10.0-windows\CHIP8Emulator.deps.json
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\bin\Debug\net10.0-windows\CHIP8Emulator.runtimeconfig.json
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\bin\Debug\net10.0-windows\CHIP8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\bin\Debug\net10.0-windows\CHIP8Emulator.pdb
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.AssemblyInfoInputs.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.AssemblyInfo.cs
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.csproj.CoreCompileInputs.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\refint\CHIP8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.pdb
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.genruntimeconfig.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP8Emulator\obj\Debug\net10.0-windows\ref\CHIP8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\bin\Debug\net10.0-windows\Chip8Emulator.exe
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\bin\Debug\net10.0-windows\Chip8Emulator.deps.json
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\bin\Debug\net10.0-windows\Chip8Emulator.runtimeconfig.json
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\bin\Debug\net10.0-windows\Chip8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\bin\Debug\net10.0-windows\Chip8Emulator.pdb
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.AssemblyInfoInputs.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.AssemblyInfo.cs
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.csproj.CoreCompileInputs.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\Chip8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\refint\Chip8Emulator.dll
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\Chip8Emulator.pdb
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\CHIP8Emulator.genruntimeconfig.cache
+E:\Projects\cSharp\Emulators\CHIP-8\CHIP-8 (Source)\CHIP8Emulator\obj\Debug\net10.0-windows\ref\Chip8Emulator.dll
