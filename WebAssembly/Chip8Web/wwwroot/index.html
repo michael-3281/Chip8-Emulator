@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chip8Web</title>
-    <base href="/" />
+    <base href="/Chip8-Emulator/" />
     <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
@@ -29,13 +29,28 @@
         <span class="dismiss">🗙</span>
     </div>
 
-    <script src="emulator.js"></script>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script>
-        Blazor.start({
-            loadBootResource: function (type, name, defaultUri, integrity) {
-                // Forces the browser to ignore 'integrity' check
-                return defaultUri;
+        window.addEventListener('load', function () {
+            if (window.Blazor) {
+                Blazor.start({
+                    loadBootResource: function (type, name, defaultUri, integrity) {
+                        return defaultUri; // Disables hash checking
+                    }
+                });
+            } else {
+                console.warn("Standard Blazor script not found. Trying fingerprinted version...");
+                var script = document.createElement('script');
+                // Manually targets file name found in gh-pages branch
+                script.src = "_framework/blazor.webassembly.66stpp682q.js";
+                script.onload = function() {
+                    Blazor.start({
+                        loadBootResource: function (type, name, defaultUri, integrity) {
+                            return defaultUri;
+                        }
+                    });
+                };
+                document.body.appendChild(script);
             }
         });
     </script>
@@ -106,3 +121,4 @@
 
 
 </html>
+
