@@ -28,11 +28,8 @@
     </div>
 
     <script src="emulator.js"></script>
-    <script src="/_framework/blazor.webassembly.js" autostart="false"></script>
-    
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script>
-        // Wrap in a function which waits for the window to laod
-        // Ensures that blazor.webassembly.js is ready before we call it
         window.addEventListener('load', function () {
             if (window.Blazor) {
                 Blazor.start({
@@ -41,7 +38,18 @@
                     }
                 });
             } else {
-                console.error("Blazor script not found. Checking paths...");
+                console.warn("Standard Blazor script not found. Trying fingerprinted version...");
+                var script = document.createElement('script');
+                // Matches exact file in gh-pages branch
+                script.src = "_framework/blazor.webassembly.66stpp682q.js";
+                script.onload = function() {
+                    Blazor.start({
+                        loadBootResource: function (type, name, defaultUri, integrity) {
+                            return defaultUri;
+                        }
+                    });
+                };
+                document.body.appendChild(script);
             }
         });
     </script>
