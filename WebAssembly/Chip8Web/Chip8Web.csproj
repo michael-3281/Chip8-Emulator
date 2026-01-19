@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
     <BlazorCacheBootResources>false</BlazorCacheBootResources>
+    <WasmFingerprintAssets>false</WasmFingerprintAssets>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,4 +15,5 @@
   </ItemGroup>
 
 </Project>
+
 
