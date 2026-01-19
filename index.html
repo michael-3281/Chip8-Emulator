@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chip8Web</title>
     <base href="/Chip8-Emulator/" />
+    <link href="_framework/dotnet.v0eyjfms0z.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-gZV6IhMkT5e454yzLzltEAnxrBUX4cqf2diigE2SiEc=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="Chip8Web.styles.css" rel="stylesheet" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.cs8mcre4gh.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.0j6ezsi0n0.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.v0eyjfms0z.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
+    "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
+    "./_framework/dotnet.js": "sha256-gZV6IhMkT5e454yzLzltEAnxrBUX4cqf2diigE2SiEc=",
+    "./_framework/dotnet.native.cs8mcre4gh.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
+    "./_framework/dotnet.native.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
+    "./_framework/dotnet.runtime.0j6ezsi0n0.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
+    "./_framework/dotnet.runtime.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
+    "./_framework/dotnet.v0eyjfms0z.js": "sha256-gZV6IhMkT5e454yzLzltEAnxrBUX4cqf2diigE2SiEc="
+  }
+}</script>
 </head>
 
 <body>
@@ -30,26 +50,10 @@
     <script src="emulator.js"></script>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
     <script>
-        window.addEventListener('load', function () {
-            if (window.Blazor) {
-                Blazor.start({
-                    loadBootResource: function (type, name, defaultUri, integrity) {
-                        return defaultUri;
-                    }
-                });
-            } else {
-                console.warn("Standard Blazor script not found. Trying fingerprinted version...");
-                var script = document.createElement('script');
-                // Matches exact file in gh-pages branch
-                script.src = "_framework/blazor.webassembly.66stpp682q.js";
-                script.onload = function() {
-                    Blazor.start({
-                        loadBootResource: function (type, name, defaultUri, integrity) {
-                            return defaultUri;
-                        }
-                    });
-                };
-                document.body.appendChild(script);
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                // Forces the browser to ignore 'integrity' check
+                return defaultUri;
             }
         });
     </script>
@@ -117,5 +121,6 @@
         };
     </script>
 </body>
+
 
 </html>
