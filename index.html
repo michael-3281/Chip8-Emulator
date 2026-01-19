@@ -27,31 +27,9 @@
         <span class="dismiss">🗙</span>
     </div>
 
-    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
-    <script>
-        window.addEventListener('load', function () {
-            if (window.Blazor) {
-                Blazor.start({
-                    loadBootResource: function (type, name, defaultUri, integrity) {
-                        return defaultUri; // Disables hash checking
-                    }
-                });
-            } else {
-                console.warn("Standard Blazor script not found. Trying fingerprinted version...");
-                var script = document.createElement('script');
-                // Manually targets file name found in gh-pages branch
-                script.src = "_framework/blazor.webassembly.66stpp682q.js";
-                script.onload = function() {
-                    Blazor.start({
-                        loadBootResource: function (type, name, defaultUri, integrity) {
-                            return defaultUri;
-                        }
-                    });
-                };
-                document.body.appendChild(script);
-            }
-        });
-    </script>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script src="emulator.js"></script>
 
     <script>
         // Audio Context to manage sound
@@ -119,5 +97,6 @@
 
 
 </html>
+
 
 
