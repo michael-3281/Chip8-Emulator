@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chip8Web</title>
-    <base href="/" />
-    <link href="_framework/dotnet.kfmy6f5t4p.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-8Gct6KEQEj/59JMw9YJyoboJjjCxr9WNau9XdNm/GrA=" />
+    <base href="/Chip8-Emulator/" />
+    <link href="_framework/dotnet.h8vju2earq.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-H1Unr+NDN0W7h3e0dgtVDhZ8i8ntilEHf2iG6NW9taY=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -14,7 +14,7 @@
     <script type="importmap">{
   "imports": {
     "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
-    "./_framework/dotnet.js": "./_framework/dotnet.kfmy6f5t4p.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.h8vju2earq.js",
     "./_framework/dotnet.native.js": "./_framework/dotnet.native.cs8mcre4gh.js",
     "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.0j6ezsi0n0.js"
   },
@@ -22,8 +22,8 @@
   "integrity": {
     "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
     "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
-    "./_framework/dotnet.js": "sha256-8Gct6KEQEj/59JMw9YJyoboJjjCxr9WNau9XdNm/GrA=",
-    "./_framework/dotnet.kfmy6f5t4p.js": "sha256-8Gct6KEQEj/59JMw9YJyoboJjjCxr9WNau9XdNm/GrA=",
+    "./_framework/dotnet.h8vju2earq.js": "sha256-H1Unr+NDN0W7h3e0dgtVDhZ8i8ntilEHf2iG6NW9taY=",
+    "./_framework/dotnet.js": "sha256-H1Unr+NDN0W7h3e0dgtVDhZ8i8ntilEHf2iG6NW9taY=",
     "./_framework/dotnet.native.cs8mcre4gh.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.native.js": "sha256-/I3SDHIle7heAxlUGBrgxax+lkKyWyRLBVEJmTHJSCs=",
     "./_framework/dotnet.runtime.0j6ezsi0n0.js": "sha256-jCsbbdXoVd1zzGc0fQT2sz4mKuv0ANdurPVGo5Sc2jg=",
@@ -48,7 +48,31 @@
     </div>
 
     <script src="emulator.js"></script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        window.addEventListener('load', function () {
+            if (window.Blazor) {
+                Blazor.start({
+                    loadBootResource: function (type, name, defaultUri, integrity) {
+                        return defaultUri; // Disables hash checking
+                    }
+                });
+            } else {
+                console.warn("Standard Blazor script not found. Trying fingerprinted version...");
+                var script = document.createElement('script');
+                // Manually targets file name found in gh-pages branch
+                script.src = "_framework/blazor.webassembly.66stpp682q.js";
+                script.onload = function() {
+                    Blazor.start({
+                        loadBootResource: function (type, name, defaultUri, integrity) {
+                            return defaultUri;
+                        }
+                    });
+                };
+                document.body.appendChild(script);
+            }
+        });
+    </script>
 
     <script>
         // Audio Context to manage sound
@@ -113,5 +137,6 @@
         };
     </script>
 </body>
+
 
 </html>
