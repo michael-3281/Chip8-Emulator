@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chip8Web</title>
     <base href="/Chip8-Emulator/" />
-    <link href="_framework/dotnet.ge7obe27gr.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-eP6dea0q0XF17NravocTRwhnwZQAemKEPhW6RsiO1aw=" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -29,7 +28,15 @@
     </div>
 
     <script src="emulator.js"></script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script>
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                // This function tells the browser: "Don't check the file hash, just load it."
+                return defaultUri;
+            }
+        });
+    </script>
 
     <script>
         // Audio Context to manage sound
