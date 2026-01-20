@@ -1,21 +1,28 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [ main ]
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
-      - name: Publish Project
-        run: dotnet publish WebAssembly/Chip8Web/Chip8Web.csproj -c Release -o release --nologo
-      - name: Change base-tag in index.html
-        run: sed -i 's/<base href="\/" \/>/<base href="\/Chip8-Emulator\/" \/>/g' release/wwwroot/index.html
-      - name: Upload to GitHub Pages
+          dotnet-version: '10.0.x' 
+
+      - name: Publish App
+        run: dotnet publish WebAssembly/Chip8Web/Chip8Web.csproj -c Release -o release --no-incremental
+
+      - name: .nojekyll
+        run: touch release/wwwroot/.nojekyll
+
+      - name: Commit and Push to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: release/wwwroot
