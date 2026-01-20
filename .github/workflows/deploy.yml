@@ -18,7 +18,16 @@ jobs:
           dotnet-version: '10.0'
 
       - name: Publish Project
-        run: dotnet publish WebAssembly/Chip8Web/Chip8Web.csproj -c Release -o release --force --nologo
+        run: dotnet publish WebAssembly/Chip8Web/Chip8Web.csproj -c Release -o release --force
+
+      - name: Remove Fingerprinting Manually
+        run: |
+          cd release/wwwroot/_framework
+          # Find the hashed file and rename it to the clean version
+          mv blazor.webassembly.*.js blazor.webassembly.js || true
+          mv blazor.webassembly.*.js.gz blazor.webassembly.js.gz || true
+          mv blazor.webassembly.*.js.br blazor.webassembly.js.br || true
+        shell: bash
 
       - name: Change base-tag in index.html
         run: sed -i 's/<base href="\/" \/>/<base href="\/Chip8-Emulator\/" \/>/g' release/wwwroot/index.html
