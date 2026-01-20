@@ -37,7 +37,7 @@ original ROMs (read only memory) can be run on modern systems.
 
 
 
-2\. Web Version (Self-Build)
+2. Web Version
 
 **Hosted Link:** [Here](https://michael-3281.github.io/Chip8-Emulator/)
 * The source code for the Blazor WebAssembly version is located in '/WebAssembly'.
@@ -357,6 +357,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
