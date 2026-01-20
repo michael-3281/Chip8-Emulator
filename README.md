@@ -318,7 +318,7 @@ Perform a **Hard Refresh** (Ctrl + F5) or (Cmd + Shift + R)
 
 **V1.1.0**
 
-* Multi-Platform Support: Integrated Blazor WebAssembly project for
+* Multi-Platform Support: Integrated Blazor WebAssembly project for browser-based emulation
 
 
 
@@ -326,15 +326,10 @@ Perform a **Hard Refresh** (Ctrl + F5) or (Cmd + Shift + R)
 
 * Public Hosting: Successfully deployed the WebAssembly version to GitHub Pages. 
 
-browser-based emulation
-
 * Unified Project Structure: Refactored repository to include both
-
 Desktop and Web source code under a single solution
 
-* Improved Organization: Added centralized roms directory and .gitignore
-
-for cleaner repository management
+* Improved Organization: Added centralized roms directory and .gitignore for cleaner repository management
 
 
 
@@ -349,7 +344,6 @@ for cleaner repository management
 **License**
 
 This project is released under the **MIT License.** See the LICENSE file
-
 for details.
 
 
@@ -357,6 +351,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
