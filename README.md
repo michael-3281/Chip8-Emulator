@@ -1,5 +1,7 @@
 CHIP-8 EMULATOR
 
+Version](https://img.shields.io/github/v/release/michael-3281/Chip8-Emulator?label=Version&color=blue)
+
 **Version:** 1.2.0
 
 **Platforms:** Windows (x64), Web (Blazor WebAssembly)
@@ -357,6 +359,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
