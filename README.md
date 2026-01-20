@@ -1,6 +1,6 @@
 CHIP-8 EMULATOR
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 **Platforms:** Windows (x64), Web (Blazor WebAssembly)
 
@@ -357,6 +357,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
