@@ -31,7 +31,7 @@ original ROMs (read only memory) can be run on modern systems.
 
 1. Windows Desktop (Standalone)
 
-* **Download** - Get the 'v1.1.0' ZIP from the [Releases](https://github.com/michael-3281/Chip8-Emulator/releases) page.
+* **Download** - Get the 'v1.2.0' ZIP from the [Releases](https://github.com/michael-3281/Chip8-Emulator/releases) page.
 * **Run**      - Extract the folder and double-click 'CHIP8Emulator.exe'
 * **Note**     - Ensure the 'roms' folder stays next to the '.exe'.
 
@@ -357,6 +357,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
