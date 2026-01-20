@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,16 +17,18 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '10.0.x' 
+          dotnet-version: '10.0.x'
+          include-prerelease: true 
 
       - name: Publish App
         run: dotnet publish WebAssembly/Chip8Web/Chip8Web.csproj -c Release -o release --no-incremental
 
-      - name: .nojekyll
+      - name: Add .nojekyll
         run: touch release/wwwroot/.nojekyll
 
-      - name: Commit and Push to gh-pages
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: release/wwwroot
           branch: gh-pages
+          clean: true
