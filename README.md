@@ -1,10 +1,10 @@
 CHIP-8 EMULATOR
 
 **Version:** 1.1.0
+
 **Platforms:** Windows (x64), Web (Blazor WebAssembly)
+
 **Author:** Michael 
-
-
 
 **What is CHIP-8?**
 
@@ -39,8 +39,8 @@ original ROMs (read only memory) can be run on modern systems.
 
 2\. Web Version (Self-Build)
 
+**Hosted Link:** [Here](https://michael-3281.github.io/Chip8-Emulator/)
 * The source code for the Blazor WebAssembly version is located in '/WebAssembly'.
-* (Coming Soon: Hosted link for direct browser play)
 
 
 
@@ -290,6 +290,10 @@ work correctly.
 
 
 
+**"Loading..." screen stuck on web:** 
+
+Perform a **Hard Refresh** (Ctrl + F5) or (Cmd + Shift + R)
+
 
 
 **Version History**
@@ -312,9 +316,15 @@ work correctly.
 
 
 
-**V1.1.0 (Current)**
+**V1.1.0**
 
 * Multi-Platform Support: Integrated Blazor WebAssembly project for
+
+
+
+**V1.2.0 (Current)**
+
+* Public Hosting: Successfully deployed the WebAssembly version to GitHub Pages. 
 
 browser-based emulation
 
@@ -347,6 +357,7 @@ for details.
 **Enjoy retro computing!**
 
 * Future emulators to come
+
 
 
 
